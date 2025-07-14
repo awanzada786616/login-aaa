@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <title>Login | Secure Access</title>
+  <meta charset="UTF-8" />
+  <title>Login | Wasi OTP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    body {
+    body, html {
       margin: 0;
-      height: 100vh;
-      background: #1a1a1a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
     }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
     .card {
-      background: #222;
+      position: relative;
+      z-index: 1;
+      background: rgba(34,34,34,0.95);
       padding: 40px;
-      border-radius: 10px;
+      border-radius: 12px;
       width: 320px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      margin: auto;
+      margin-top: 100px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
     }
+
     h2 {
       color: #fff;
       text-align: center;
       margin-bottom: 25px;
     }
+
     input {
       width: 100%;
       padding: 12px;
@@ -36,9 +48,11 @@
       color: #ddd;
       font-size: 16px;
     }
+
     input::placeholder {
       color: #999;
     }
+
     button {
       width: 100%;
       padding: 12px;
@@ -50,15 +64,18 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     button:hover {
       background: #ff5722;
     }
+
     .footer {
       text-align: center;
       margin-top: 15px;
       font-size: 14px;
       color: #bbb;
     }
+
     .footer a {
       color: #ff4b2b;
       text-decoration: none;
@@ -67,15 +84,70 @@
 </head>
 <body>
 
-  <div class="card">
-    <h2>Secure Login</h2>
-    <input type="text" placeholder="Username / Email" />
-    <input type="password" placeholder="Password / OTP" />
-    <button>Login</button>
-    <div class="footer">
-      New user? <a href="signup.html">Sign Up</a>
-    </div>
+<canvas id="crystals"></canvas>
+
+<div class="card">
+  <h2>✨ Secure Login</h2>
+  <input type="text" placeholder="Username / Email" />
+  <input type="password" placeholder="Password / OTP" />
+  <button>Login</button>
+  <div class="footer">
+    New user? <a href="signup.html">Sign Up</a>
   </div>
+</div>
+
+<script>
+  const canvas = document.getElementById("crystals");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.7,
+      dy: (Math.random() - 0.5) * 0.7
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function update() {
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+  }
+
+  function animate() {
+    draw();
+    update();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
 
 </body>
 </html>
