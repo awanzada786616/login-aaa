@@ -1,82 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ShadowOTP Style Login</title>
+  <meta charset="UTF-8"/>
+  <title>Login | Secure Access</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: #1a1a1a;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #141414, #2a2a2a);
-      font-family: 'Segoe UI', sans-serif;
-      color: #eee;
+      align-items: center;
+      font-family: Arial, sans-serif;
     }
-    .login-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(15px);
+    .card {
+      background: #222;
       padding: 40px;
-      border-radius: 12px;
+      border-radius: 10px;
       width: 320px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
-    .login-card h2 {
+    h2 {
+      color: #fff;
+      text-align: center;
       margin-bottom: 25px;
-      text-align: center;
-      font-size: 24px;
-      color: #00f2fe;
     }
-    .login-card input {
+    input {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin-bottom: 15px;
       border: none;
       border-radius: 6px;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
+      background: #333;
+      color: #ddd;
       font-size: 16px;
     }
-    .login-card input::placeholder {
-      color: #ccc;
+    input::placeholder {
+      color: #999;
     }
-    .login-card button {
+    button {
       width: 100%;
       padding: 12px;
-      margin-top: 15px;
-      background: linear-gradient(45deg, #00f2fe, #4facfe);
+      background: #ff4b2b;
       border: none;
       border-radius: 6px;
-      font-size: 16px;
       color: #fff;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
-    .login-card button:hover {
-      background: linear-gradient(45deg, #43e97b, #38f9d7);
+    button:hover {
+      background: #ff5722;
     }
-    .login-card .link {
-      margin-top: 12px;
+    .footer {
       text-align: center;
+      margin-top: 15px;
       font-size: 14px;
+      color: #bbb;
     }
-    .login-card .link a {
-      color: #4facfe;
+    .footer a {
+      color: #ff4b2b;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="login-card">
-    <h2>Shadow OTP</h2>
-    <input type="text" placeholder="Enter Phone or Email" />
-    <input type="password" placeholder="Enter OTP / Password" />
+
+  <div class="card">
+    <h2>Secure Login</h2>
+    <input type="text" placeholder="Username / Email" />
+    <input type="password" placeholder="Password / OTP" />
     <button>Login</button>
-    <div class="link">
-      New user? <a href="signup.html">Create account</a>
+    <div class="footer">
+      New user? <a href="signup.html">Sign Up</a>
     </div>
   </div>
+
 </body>
 </html>
