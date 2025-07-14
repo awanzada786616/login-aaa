@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login | Wasi OTP</title>
+  <title>Wasi OTP Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: #111;
+      overflow: hidden;
     }
 
     #crystals {
@@ -23,59 +23,61 @@
       z-index: 0;
     }
 
-    .card {
+    .login-wrapper {
       position: relative;
       z-index: 1;
-      background: rgba(20, 20, 20, 0.85);
-      padding: 40px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 320px;
-      margin: 100px auto;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
-
-    h2 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    input {
+      height: 100%;
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-wrapper h2 {
+      color: #fff;
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    .login-wrapper input {
+      width: 100%;
+      max-width: 340px;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 8px;
       border: none;
-      border-radius: 6px;
-      background: #333;
-      color: #ddd;
+      background: rgba(255,255,255,0.07);
+      color: #fff;
       font-size: 16px;
     }
 
-    input::placeholder {
-      color: #999;
+    .login-wrapper input::placeholder {
+      color: #aaa;
     }
 
-    button {
+    .login-wrapper button {
       width: 100%;
-      padding: 12px;
+      max-width: 340px;
+      padding: 14px;
       background: linear-gradient(45deg, #00f2fe, #4facfe);
-      border: none;
-      border-radius: 6px;
       color: #fff;
+      border: none;
+      border-radius: 8px;
       font-size: 16px;
+      margin-top: 15px;
       cursor: pointer;
     }
 
-    button:hover {
+    .login-wrapper button:hover {
       background: linear-gradient(45deg, #43e97b, #38f9d7);
     }
 
     .footer {
-      text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
+      color: #ccc;
       font-size: 14px;
-      color: #bbb;
     }
 
     .footer a {
@@ -88,13 +90,13 @@
 
 <canvas id="crystals"></canvas>
 
-<div class="card">
-  <h2>✨ Secure Login</h2>
+<div class="login-wrapper">
+  <h2>🔐 Wasi Secure Login</h2>
   <input type="text" placeholder="Phone / Email" />
   <input type="password" placeholder="OTP / Password" />
   <button>Login</button>
   <div class="footer">
-    New user? <a href="signup.html">Sign Up</a>
+    New user? <a href="signup.html">Create Account</a>
   </div>
 </div>
 
